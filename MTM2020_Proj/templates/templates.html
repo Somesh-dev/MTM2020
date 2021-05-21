@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>Grand Challenge</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+        body {
+    font-family: 'Lato', sans-serif
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+label {
+    color: #333;
+}
+
+div#loading {
+    width: 70px;
+    height: 30px;
+    display: none;
+    background: url("/static/loadingimage1.gif") no-repeat;
+    cursor: wait;
+    
+    }
+
+div#loading h4{
+    color:rgb(71, 224, 71);
+}
+
+.btn-send {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    width: 80%;
+    margin-left: 3px
+}
+
+.help-block.with-errors {
+    color: #ff5050;
+    margin-top: 5px
+}
+
+.card {
+    margin-left: 10px;
+    margin-right: 10px
+}
+    </style>
+</head>
+
+<body>    
+<div class="container"><div class=" text-center mt-5 ">
+    <h1>Data Pack Recharge</h1>
+</div>
+<div class="container" id="loading"><h5>&nbsp&nbsp&nbsp&nbspwait....</h5></div>
+<div class="row ">
+    <div class="col-lg-7 mx-auto">
+        <div class="card mt-2 mx-auto p-4 bg-light">
+            <div class="card-body bg-light">
+                <div class="container">
+                    <form id="contact-form" role="form"  action="\feedback\{{ c }}" method="POST">
+                        <div class="controls">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"> <label for="form_name">First name *</label> <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required."> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> <label for="form_lastname">Last name *</label> <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required."> </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"> <label for="form_email">Phone No. (with country code like +91) *</label> <input id="form_phone" type="tel" maxlength="13" name="phone" class="form-control" placeholder="Please enter your phone no with Country code *" required="required" data-error="Valid phone no is required."> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> <label for="form_need">Please specify your pack *</label> <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                                            <option value="" selected disabled>--Select The Pack--</option>
+                                            <option name="sp">Starter Pack ($10/month)</option>
+                                            <option name="cp">Community Pack ($20/month)</option>
+                                            <option name="ep">Enterprise Pack ($35/month)</option>
+                                            <option name="cup">Custom Pack (depending on the needs)</option>
+                                        </select> </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group"> <label for="form_message">Message </label> <textarea id="form_message" name="message" class="form-control" placeholder="Write your message here." rows="4" data-error="Please, leave us a message."></textarea> </div>
+                                </div>
+                                <div class="col-md-12"> <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Record Details" onclick="loading()"> </div>
+                                <br><br>
+                                <div class="col-md-12"></div><a href="/">Back &larr;</a></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- /.8 -->
+    </div> <!-- /.row-->
+</div>
+</div>
+</body>
+<script type="text/javascript">// <![CDATA[
+    function loading(){
+        $("#loading").show();
+        $("#content").hide();       
+    }
+// ]]></script>
+</html>
